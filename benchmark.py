@@ -11,7 +11,7 @@ import time
 
 
 CHUNK = 1024
-REPEAT = 1000
+REPEAT = 1000 * 1000
 
 
 TimedResult = collections.namedtuple('TimedResult', 'results, time')

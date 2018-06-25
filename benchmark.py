@@ -35,14 +35,12 @@ def calculate_partial(filename: str, algorithm: str) -> Callable:
     return inner
 
 
-# Result = collections.namedtuple('Result', 'filename, hash_function, time, results')
-
-
 def main():
     here = pathlib.Path(__file__).parent
     dest = here / 'files'
 
     csv_writer = csv.writer(sys.stdout)
+    csv_writer.writerow(['File size', 'Algorithm', 'Time {} runs'.format(REPEAT), 'Example result'])
 
     for filename in sorted(glob.glob(str(dest / '*'))):
         filesize = os.path.getsize(filename)
